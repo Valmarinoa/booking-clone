@@ -1,14 +1,20 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Bars3Icon,
+  XMarkIcon,
   //   XMarkIcon,
 } from "@heroicons/react/16/solid";
-import { Dialog, Popover, Transition } from "@headlessui/react";
-import { products, services, menuItems } from "../lib/data";
-import Login from "./header-components/Login";
+import { Dialog, Disclosure } from "@headlessui/react";
+import Logo from "./header-components/Logo";
 import PopoverMenuItem from "./header-components/PopoverMenuItem";
+import Login from "./header-components/Login";
+import { ChevronDownIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { menuItems, products, services } from "@/lib/data";
+import MobileHeader from "./MobileHeader";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -16,20 +22,10 @@ const Header = () => {
   return (
     <header className="bg-[#013B94]" aria-label="Global">
       <nav className="flex mx-auto max-w-7xl items-center justify-between p-6 lg:px-8">
-        {/* Logo */}
+        <Logo />
+        <PopoverMenuItem />
         <Login />
 
-        {/* Stays item with Popover component*/}
-        <PopoverMenuItem />
-
-        {/* Login */}
-        <div className="hidden lg:flex  lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Login <span aria-hidden="true" />
-          </a>
-        </div>
-
-        {/* Menu icon */}
         <div className="flex lg:hidden">
           <button
             type="button"
@@ -45,11 +41,12 @@ const Header = () => {
         as="div"
         className="lg:hidden"
         open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
+        onClose={() => setMobileMenuOpen(false)}
       >
-        <div className="fixed inset-0 z-10">
-          <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#013B94] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10"></Dialog.Panel>
-        </div>
+        <MobileHeader
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+        />
       </Dialog>
     </header>
   );

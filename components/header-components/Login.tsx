@@ -1,16 +1,11 @@
-import Link from "next/link";
 import React from "react";
-import Image from "next/image";
-
-import logo from "../../public/booking-logo-white.png";
 
 const Login = () => {
   return (
-    <div>
-      <Link href="/" className="-m-1.5 p-1.5">
-        <span className="sr-only">Booking.com</span>
-        <Image src={logo} priority alt="Booking.com -Clone" height={52} />
-      </Link>
+    <div className="hidden lg:flex  lg:justify-end">
+      <a href="#" className="text-sm font-semibold leading-6 text-white">
+        Login <span aria-hidden="true" />
+      </a>
     </div>
   );
 };
