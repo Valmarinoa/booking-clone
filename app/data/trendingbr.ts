@@ -35,7 +35,7 @@ export const trending_brasil = [
     id: 4,
     title: "Orla do Rio de Janeiro",
     natureza: "areia branca / mar azul",
-    region: "Zona Sul do Rio de Janeiro",
+    region: "Rio de Janeiro",
     img: orla,
   },
   {
