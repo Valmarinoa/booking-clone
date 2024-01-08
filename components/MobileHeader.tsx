@@ -1,4 +1,4 @@
-import { menuItems, products, services } from "@/lib/data";
+import { menuItems, products, services } from "@/app/data/data";
 import { cn } from "@/lib/utils";
 import { Dialog, Disclosure } from "@headlessui/react";
 import {
@@ -26,7 +26,7 @@ const MobileHeader = ({
       onClose={() => setMobileMenuOpen(false)}
     >
       <div className="fixed inset-0 z-10">
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#013B94]  py-6  sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#013B94] sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between px-6">
             <div
               className="

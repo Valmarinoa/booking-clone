@@ -5,7 +5,7 @@ import {
   //   XMarkIcon,
 } from "@heroicons/react/16/solid";
 import { Transition, Popover } from "@headlessui/react";
-import { products, services, menuItems } from "../../lib/data";
+import { products, services, menuItems } from "../../app/data/data";
 
 const PopoverMenuItem = () => {
   return (

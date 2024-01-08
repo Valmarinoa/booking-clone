@@ -13,7 +13,7 @@ import PopoverMenuItem from "./header-components/PopoverMenuItem";
 import Login from "./header-components/Login";
 import { ChevronDownIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { menuItems, products, services } from "@/lib/data";
+import { menuItems, products, services } from "@/app/data/data";
 import MobileHeader from "./MobileHeader";
 
 const Header = () => {
@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <header className="bg-[#013B94]" aria-label="Global">
-      <nav className="flex mx-auto max-w-7xl items-center justify-between p-6 lg:px-8">
+      <nav className="flex mx-auto max-w-7xl items-center justify-between">
         <Logo />
         <PopoverMenuItem />
         <Login />
