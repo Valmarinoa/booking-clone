@@ -15,10 +15,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 
-import { BedDoubleIcon, Calendar, CalendarIcon } from "lucide-react";
+import { BedDoubleIcon, CalendarIcon } from "lucide-react";
+import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
+import { DateRange } from "react-day-picker";
 
 export const formSchema = z.object({
   location: z.string().min(2).max(50),
@@ -39,8 +41,6 @@ export const formSchema = z.object({
 });
 
 const SearchForm = () => {
-  //   const router = useRouter();
-
   const form = useForm<z.infer<typeof formSchema>>({
     mode: "onChange",
     resolver: zodResolver(formSchema),
@@ -59,6 +59,7 @@ const SearchForm = () => {
   function onSubmit(data: z.infer<typeof formSchema>) {
     console.log(data);
   }
+
   return (
     <Form {...form}>
       <form
@@ -128,19 +129,16 @@ const SearchForm = () => {
                         </Button>
                       </FormControl>
                     </PopoverTrigger>
-                    <PopoverContent>
+                    <PopoverContent className="w-auto p-0" align="start">
                       <Calendar
+                        initialFocus
                         mode="range"
-                        range={{
-                          from: field.value?.from || new Date(),
-                          to: field.value?.to || new Date(),
-                        }}
+                        selected={field.value}
                         defaultMonth={field.value.from}
                         onSelect={field.onChange}
                         numberOfMonths={2}
-                        disabled={(date: number) =>
-                          date < new Date().setHours(0, 0, 0)
-                        }
+                        className="bg-white rounded-md"
+                        disabled={{ before: new Date() }}
                       />
                     </PopoverContent>
                   </Popover>

@@ -27,8 +27,10 @@ export default function Home() {
                 <Image
                   alt={item.title}
                   src={item.img}
-                  objectFit="cover"
                   layout="fill"
+                  objectFit="cover"
+                  objectPosition="center"
+                  placeholder="blur"
                   className="object-cover rounded-xl"
                 />
               </div>
